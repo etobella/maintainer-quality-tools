@@ -358,8 +358,8 @@ def main(argv=None):
     preinstall_modules = get_test_dependencies(addons_path,
                                                tested_addons_list)
 
-    preinstall_modules = list(set(tested_addons_list) - set(get_modules(
-        os.environ.get('TRAVIS_BUILD_DIR')))) or ['base']
+    preinstall_modules = list(
+        set(preinstall_modules) - tested_addons_list) or ['base']
     print("Modules to preinstall: %s" % preinstall_modules)
     setup_server(dbtemplate, odoo_unittest, tested_addons_list, server_path,
                  script_name, addons_path, install_options, preinstall_modules,
