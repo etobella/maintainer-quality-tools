@@ -359,7 +359,7 @@ def main(argv=None):
                                                tested_addons_list)
 
     preinstall_modules = list(
-        set(preinstall_modules) - tested_addons_list) or ['base']
+        set(preinstall_modules) - set(tested_addons_list)) or ['base']
     print("Modules to preinstall: %s" % preinstall_modules)
     setup_server(dbtemplate, odoo_unittest, tested_addons_list, server_path,
                  script_name, addons_path, install_options, preinstall_modules,
